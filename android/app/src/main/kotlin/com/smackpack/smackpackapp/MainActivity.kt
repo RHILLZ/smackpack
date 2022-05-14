@@ -1,4 +1,4 @@
-package com.example.smackpack
+package com.smackpack.smackpackapp
 
 import io.flutter.embedding.android.FlutterActivity
 

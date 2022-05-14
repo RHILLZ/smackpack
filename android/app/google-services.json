@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "45422608864",
+    "project_id": "smackpack-c05fc",
+    "storage_bucket": "smackpack-c05fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45422608864:android:cdd97c2766224aee1eab85",
+        "android_client_info": {
+          "package_name": "com.smackpack.smackpackapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45422608864-471r5idq64hq44j63dp66vs5jovmms34.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0qXURKb1gPKJWqeoRPAU4ms0bKSEmatA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45422608864-471r5idq64hq44j63dp66vs5jovmms34.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
