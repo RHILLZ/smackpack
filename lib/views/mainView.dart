@@ -13,7 +13,6 @@ class MainView extends GetView<AppController> {
 
   @override
   Widget build(BuildContext context) {
-    print(controller.products.length);
     return Stack(
       children: [
         Container(

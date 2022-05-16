@@ -92,7 +92,7 @@ class EditProductView extends GetView<AdminController> {
                   ),
                   EffectSlider(
                     controller: controller,
-                    // product: _product,
+                    product: _product,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,

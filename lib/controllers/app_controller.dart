@@ -9,6 +9,7 @@ import 'package:smackpack/data/firebase/streams.dart';
 import 'package:smackpack/data/models/contact.dart';
 import 'package:smackpack/data/models/product.dart';
 import 'package:smackpack/views/locationChoiceView.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 enum Location {
   nj,
@@ -105,5 +106,12 @@ class AppController extends GetxController {
     }
 
     return;
+  }
+
+  //open ig link
+  followUsHere() async {
+    const auth = 'instagram.com';
+    final Uri uri = Uri.https(auth, '/smack_pack_nyc');
+    await launchUrl(uri);
   }
 }

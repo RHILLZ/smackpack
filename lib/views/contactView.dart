@@ -54,7 +54,8 @@ class ContactView extends GetView<AppController> {
                 SizedBox(
                   height: 5.h,
                 ),
-                instagram
+                GestureDetector(
+                    onTap: () => controller.followUsHere(), child: instagram)
               ],
             ),
           ),
@@ -151,7 +152,7 @@ class ContactView extends GetView<AppController> {
         height: 1.h,
       ),
       const SmackText(
-        text: 'Follow us',
+        text: 'Follow us here',
         strokeColor: smackBlue,
         textColor: smackPink,
         // strokeWidth: 2,

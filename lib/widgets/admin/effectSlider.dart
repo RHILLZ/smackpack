@@ -9,39 +9,40 @@ import 'package:smackpack/data/models/product.dart';
 import 'package:smackpack/widgets/widgets_export.dart';
 
 class EffectSlider extends StatelessWidget {
-  EffectSlider(
+  const EffectSlider(
       {super.key, required AdminController controller, Product? product})
       : _controller = controller,
         _product = product;
 
   final AdminController _controller;
   final Product? _product;
-  final GlobalKey _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
-    return Obx(() => SizedBox(
-          width: 95.w,
-          child: Column(
-            children: [
-              effectLabel(_product),
-              Slider.adaptive(
-                  key: _key,
-                  activeColor: smackBlue,
-                  thumbColor: smackPink,
-                  value: _product != null
-                      ? _product!.effectLevel
-                      : _controller.effectLevel,
-                  onChanged: (v) {
-                    if (_product != null) {
-                      _controller.updatedEffectLevel = v;
-                    } else {
-                      _controller.effectLevel = v;
-                      _controller.validateForm();
-                    }
-                  }),
-            ],
-          ),
-        ));
+    if (_product != null) {
+      _controller.updatedEffectLevel = _product!.effectLevel;
+    }
+    return SizedBox(
+      width: 95.w,
+      child: Column(
+        children: [
+          effectLabel(_product),
+          Obx(() => Slider.adaptive(
+              activeColor: smackBlue,
+              thumbColor: smackPink,
+              value: _product != null
+                  ? _controller.updatedEffectLevel
+                  : _controller.effectLevel,
+              onChanged: (v) {
+                if (_product != null) {
+                  _controller.updatedEffectLevel = v;
+                } else {
+                  _controller.effectLevel = v;
+                  _controller.validateForm();
+                }
+              })),
+        ],
+      ),
+    );
   }
 
   Widget effectLabel(Product? product) => Row(

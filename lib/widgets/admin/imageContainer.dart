@@ -22,9 +22,10 @@ class ImageContainer extends StatelessWidget {
     final imageUrl = _product?.strainImageURL;
     return Obx(() => Container(
           foregroundDecoration: BoxDecoration(
-              image: imagePath != ''
+              image: _controller.imageFile.path != ''
                   ? DecorationImage(
-                      image: FileImage(imageFile), fit: BoxFit.cover)
+                      image: FileImage(_controller.imageFile),
+                      fit: BoxFit.cover)
                   : null),
           decoration: BoxDecoration(
               image: imageUrl != null

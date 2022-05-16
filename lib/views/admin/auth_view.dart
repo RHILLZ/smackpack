@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smackpack/controllers/auth_controller.dart';
 import 'package:smackpack/core/styles.dart';
-import 'package:smackpack/main.dart';
 import 'package:smackpack/widgets/widgets_export.dart';
 
 class AuthView extends GetView<AuthController> {

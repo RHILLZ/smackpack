@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:smackpack/controllers/app_controller.dart';
 import 'package:smackpack/controllers/controller_exporter.dart';
 import 'package:smackpack/core/styles.dart';
 import 'package:smackpack/data/firebase/futures.dart';

@@ -13,7 +13,7 @@ class AuthController extends GetxController {
   signInWithEmail() async {
     try {
       final cred = await _auth.signInWithEmailAndPassword(
-          email: _email.value, password: _password.value);
+          email: _email.value.trim(), password: _password.value.trim());
       if (cred.user?.uid != null) {
         Get.toNamed('/admin_view');
       }
@@ -24,10 +24,4 @@ class AuthController extends GetxController {
   }
 
   logOut() async => await _auth.signOut();
-
-  @override
-  void onClose() {
-    // TODO: implement onClose
-    super.onClose();
-  }
 }

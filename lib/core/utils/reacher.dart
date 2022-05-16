@@ -13,6 +13,7 @@ class ReachBy {
     String areaCode = phoneNumber.substring(2, 5);
     String number =
         '${phoneNumber.substring(6, 8)}-${phoneNumber.substring(9)}';
+    // ignore: unused_local_variable
     String phonenumber = '$lead$areaCode$number';
     final url = Uri(scheme: 'tel', path: phoneNumber);
 

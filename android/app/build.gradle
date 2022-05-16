@@ -26,6 +26,12 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+       keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+   }
+
 android {
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
@@ -54,11 +60,46 @@ android {
         versionName flutterVersionName
     }
 
+    signingConfigs {
+       release {
+           keyAlias keystoreProperties['keyAlias']
+           keyPassword keystoreProperties['keyPassword']
+           storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+           storePassword keystoreProperties['storePassword']
+       }
+   }
     buildTypes {
+        if (keystorePropertiesFile.exists()) {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+          signingConfig signingConfigs.release
+        }
+      }
+
+      profile {
+          signingConfig signingConfigs.debug
+      }
+      debug {
+          signingConfig signingConfigs.debug
+      }
+   }
+
+
+    flavorDimensions "default"
+    productFlavors {
+        production{
+            dimension "default"
+            resValue "string", "app_name", "Smackpack"
+            applicationIdSuffix ""
+        }
+        staging{
+            dimension "default"
+            resValue "string", "app_name", "Staging Smackpack"
+            applicationIdSuffix ".stg"
+        }
+        development{
+            dimension "default"
+            resValue "string", "app_name", "Development Smackpack"
+            applicationIdSuffix ".dev"
         }
     }
 }
