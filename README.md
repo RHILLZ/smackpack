@@ -1,6 +1,8 @@
 # smackpack
 
-A new Flutter project.
+Simple product display and maintenance mobile
+application. View, Edit, Add products. Contact info page to 
+order products.
 
 ## Getting Started
 
